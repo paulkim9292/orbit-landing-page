@@ -178,6 +178,55 @@ function updateAllPagesParallax() {
   }
 }
 
+// Animate stat box on page 5
+let page5Animated = false;
+const statBoxLarge = document.querySelector('.stat-box-large');
+const statBoxNumber = statBoxLarge ? statBoxLarge.querySelector('p') : null;
+const arrowImg = document.querySelector('.arrow img');
+
+function animateStatBox() {
+  if (page5Animated || !statBoxLarge || !statBoxNumber) return;
+
+  const page5 = document.getElementById('page5');
+  if (!page5) return;
+
+  const windowHeight = window.innerHeight;
+  const page5Rect = page5.getBoundingClientRect();
+
+  // Trigger when page 5 is 50% visible
+  if (page5Rect.top < windowHeight * 0.3 && page5Rect.bottom > 0) {
+    page5Animated = true;
+
+    // Animate height
+    statBoxLarge.style.height = '22rem';
+
+    // Animate arrow reveal
+    if (arrowImg) {
+      arrowImg.style.clipPath = 'inset(0 0 0 0)';
+    }
+
+    // Animate counter
+    const duration = 2000; // 2 seconds
+    const start = 0;
+    const end = 5500;
+    const startTime = performance.now();
+
+    function updateCounter(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.floor(start + (end - start) * progress);
+
+      statBoxNumber.textContent = current;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      }
+    }
+
+    requestAnimationFrame(updateCounter);
+  }
+}
+
 // Update circle positions based on scroll progress
 function updateCircles() {
   // Get scroll position
@@ -231,6 +280,9 @@ function updateCircles() {
 
   // Update parallax animation for all pages
   updateAllPagesParallax();
+
+  // Update stat box animation
+  animateStatBox();
 
   // Request next frame
   requestAnimationFrame(updateCircles);
