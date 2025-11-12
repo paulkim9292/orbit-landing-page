@@ -650,21 +650,6 @@ const dots = document.querySelectorAll('.dot');
 let currentSlide = 0;
 let box1Animated = false;
 
-// Initialize carousel to center first box on load
-function initializeCarousel() {
-  if (carouselWrapper && carouselBoxes.length > 0) {
-    // Scroll first box into center view
-    carouselBoxes[0].scrollIntoView({
-      behavior: 'auto',  // Instant, no animation on load
-      block: 'nearest',
-      inline: 'center',
-    });
-  }
-}
-
-// Call on page load
-window.addEventListener('load', initializeCarousel);
-
 function animateBox1Pie() {
   const piePath = document.getElementById('box1-pie-path');
   if (!piePath) return;
