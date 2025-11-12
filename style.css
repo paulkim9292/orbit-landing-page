@@ -545,6 +545,7 @@ main {
     flex-direction: column;
     gap: 2rem;
     position: relative;
+    justify-content: space-between;
 }
 
 .box1-title {
@@ -556,15 +557,22 @@ main {
     margin: 0;
 }
 
+/* Charts Wrapper for horizontal layout */
+.box1-charts-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
 /* Pie Chart Section */
 .box1-pie-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    position: absolute;
-    left: 4rem;
-    top: 8rem;
+    flex-shrink: 0;
 }
 
 .box1-pie-chart {
@@ -589,16 +597,11 @@ main {
 
 /* Bar Chart Section */
 .box1-bar-section {
-    position: absolute;
-    right: 4rem;
-    top: 8rem;
-    width: 55%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     font-size: 1.5rem;
     font-style: italic;
-    margin-top: 2rem;
 }
 
 .box1-bar-row {
@@ -672,16 +675,12 @@ main {
 
 /* Caption Box */
 .box-caption {
-    position: absolute;
-    bottom: 3rem;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    width: calc(100% - 8rem);
+    width: 100%;
     border: 1px solid var(--blue);
     border-radius: 20px;
     padding: 1rem;
     opacity: 0;
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transform: translateY(20px);
 }
 
 .box-caption p {
@@ -733,6 +732,17 @@ main {
     }
 }
 
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Box 1 Animation Triggers */
 .carousel-box.animated .box1-bar {
     animation:
@@ -749,9 +759,8 @@ main {
 }
 
 .carousel-box.animated .box-caption {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-    transition-delay: 1s;
+    animation: fadeInSlideUp 0.5s ease-out forwards;
+    animation-delay: 1.5s;
 }
 
 /* Box 2 Content Styling */
@@ -763,6 +772,7 @@ main {
     flex-direction: column;
     gap: 2rem;
     position: relative;
+    justify-content: space-between;
 }
 
 .box2-title {
@@ -774,22 +784,22 @@ main {
     margin: 0;
 }
 
+/* Charts Wrapper for horizontal layout */
+.box2-charts-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
 /* Pie Chart Sections - Horizontal Layout */
 .box2-pie-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    position: absolute;
-    top: 9rem;
-}
-
-.box2-pie-left {
-    left: 14rem;
-}
-
-.box2-pie-right {
-    right: 14rem;
+    flex-shrink: 0;
 }
 
 /* Pie Chart SVG */
@@ -827,6 +837,11 @@ main {
     animation-delay: 1s;
 }
 
+.carousel-box:nth-child(2).animated .box-caption {
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
 /* Box 3 Content Styling */
 .box3-content {
     width: 100%;
@@ -836,6 +851,7 @@ main {
     flex-direction: column;
     gap: 2rem;
     position: relative;
+    justify-content: space-between;
 }
 
 .box3-title {
@@ -847,22 +863,22 @@ main {
     margin: 0;
 }
 
+/* Charts Wrapper for horizontal layout */
+.box3-charts-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
 /* Pie Chart Sections - Horizontal Layout */
 .box3-pie-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    position: absolute;
-    top: 9rem;
-}
-
-.box3-pie-left {
-    left: 14rem;
-}
-
-.box3-pie-right {
-    right: 14rem;
+    flex-shrink: 0;
 }
 
 /* Pie Chart SVG */
@@ -898,6 +914,11 @@ main {
 .carousel-box:nth-child(3).animated .box3-pie-label {
     animation: fadeIn 1s ease-out forwards;
     animation-delay: 1s;
+}
+
+.carousel-box:nth-child(3).animated .box-caption {
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: 1.5s;
 }
 
 /* Page 10 - How does it work */
@@ -1511,4 +1532,52 @@ main {
 #page9 p.animate {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Responsive Media Queries for Carousel Boxes */
+@media (max-width: 1024px) {
+    /* Stack charts vertically on tablets and smaller */
+    .box1-charts-wrapper,
+    .box2-charts-wrapper,
+    .box3-charts-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .box1-bar-section {
+        width: 100%;
+    }
+
+    .box-caption p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Further adjustments for mobile */
+    .box1-content,
+    .box2-content,
+    .box3-content {
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+
+    .box1-title,
+    .box2-title,
+    .box3-title {
+        font-size: 2rem;
+    }
+
+    .box-caption {
+        padding: 0.75rem;
+    }
+
+    .box-caption p {
+        font-size: 1.2rem;
+    }
+
+    .carousel-container {
+        width: 95%;
+    }
 }

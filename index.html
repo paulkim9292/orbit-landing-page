@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orbit</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <title>Orbit - your space to connect</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -47,7 +48,7 @@
             </div>
             <div class="page2-2">
                 <img src="./assets/orbit_text.svg" alt="Orbit Text" class="orbit-text">
-                <p class="orbit-text-overlay">Click for more <b>information</b></p>
+                <p>Click for more <b>information</b></p>
             </div>
             <div class="page2-3">
                 <img src="./assets/scroll_arrow.svg" alt="Scroll Arrow" class="scroll-arrow">
@@ -126,35 +127,37 @@
                     <div class="box1-content">
                         <h2 class="box1-title">Achievement-oriented, Competitive Societal Culture</h2>
 
-                        <div class="box1-pie-section">
-                            <svg class="box1-pie-chart" viewBox="0 0 200 200">
-                                <circle cx="100" cy="100" r="90" fill="#AEB1E7" />
-                                <path id="box1-pie-path" d="" fill="#924D90" transform="translate(100, 100)" />
-                                <text x="175" y="70" class="box1-pie-percent" text-anchor="end" dominant-baseline="hanging">85%</text>
-                            </svg>
-                            <p class="box1-pie-label">Private tutoring<br>participation rate</p>
-                        </div>
+                        <div class="box1-charts-wrapper">
+                            <div class="box1-pie-section">
+                                <svg class="box1-pie-chart" viewBox="0 0 200 200">
+                                    <circle cx="100" cy="100" r="90" fill="#AEB1E7" />
+                                    <path id="box1-pie-path" d="" fill="#924D90" transform="translate(100, 100)" />
+                                    <text x="175" y="70" class="box1-pie-percent" text-anchor="end" dominant-baseline="hanging">85%</text>
+                                </svg>
+                                <p class="box1-pie-label">Private tutoring<br>participation rate</p>
+                            </div>
 
-                        <div class="box1-bar-section">
-                            <div class="box1-bar-row">
-                                <span class="box1-year">2016</span>
-                                <div class="box1-bar box1-bar-blue" style="--final-width: 14%;">24%</div>
-                                <div class="box1-bar box1-bar-purple" style="--final-width: 25%;">42%</div>
-                                <img src="./assets/page7_arrow.svg" alt="Arrow" class="box1-arrow">
-                            </div>
-                            <div class="box1-bar-row">
-                                <span class="box1-year">2024</span>
-                                <div class="box1-bar box1-bar-blue" style="--final-width: 36%;">60%</div>
-                                <div class="box1-bar box1-bar-purple" style="--final-width: 48%;">80%</div>
-                            </div>
-                            <div class="box1-legend">
-                                <div class="box1-legend-item">
-                                    <span class="box1-legend-color box1-legend-blue"></span>
-                                    <span>Students at risk to develop depression/anxiety</span>
+                            <div class="box1-bar-section">
+                                <div class="box1-bar-row">
+                                    <span class="box1-year">2016</span>
+                                    <div class="box1-bar box1-bar-blue" style="--final-width: 14%;">24%</div>
+                                    <div class="box1-bar box1-bar-purple" style="--final-width: 25%;">42%</div>
+                                    <img src="./assets/page7_arrow.svg" alt="Arrow" class="box1-arrow">
                                 </div>
-                                <div class="box1-legend-item">
-                                    <span class="box1-legend-color box1-legend-purple"></span>
-                                    <span>Students already showing depression symptoms</span>
+                                <div class="box1-bar-row">
+                                    <span class="box1-year">2024</span>
+                                    <div class="box1-bar box1-bar-blue" style="--final-width: 36%;">60%</div>
+                                    <div class="box1-bar box1-bar-purple" style="--final-width: 48%;">80%</div>
+                                </div>
+                                <div class="box1-legend">
+                                    <div class="box1-legend-item">
+                                        <span class="box1-legend-color box1-legend-blue"></span>
+                                        <span>Students at risk to develop depression/anxiety</span>
+                                    </div>
+                                    <div class="box1-legend-item">
+                                        <span class="box1-legend-color box1-legend-purple"></span>
+                                        <span>Students already showing depression symptoms</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -168,24 +171,26 @@
                     <div class="box2-content">
                         <h2 class="box2-title">Social Media Addiction & Apathy in Physical Activities</h2>
 
-                        <!-- Left Pie Chart: 98% -->
-                        <div class="box2-pie-section box2-pie-left">
-                            <svg class="box2-pie-chart" viewBox="0 0 200 200">
-                                <circle cx="100" cy="100" r="90" fill="#AEB1E7" />
-                                <path id="box2-pie-path-left" d="" fill="#924D90" transform="translate(100, 100)" />
-                                <text x="175" y="70" class="box2-pie-percent" text-anchor="end" dominant-baseline="hanging">98%</text>
-                            </svg>
-                            <p class="box2-pie-label">Smartphone<br>penetration rate<br>(world's highest)</p>
-                        </div>
+                        <div class="box2-charts-wrapper">
+                            <!-- Left Pie Chart: 98% -->
+                            <div class="box2-pie-section box2-pie-left">
+                                <svg class="box2-pie-chart" viewBox="0 0 200 200">
+                                    <circle cx="100" cy="100" r="90" fill="#AEB1E7" />
+                                    <path id="box2-pie-path-left" d="" fill="#924D90" transform="translate(100, 100)" />
+                                    <text x="175" y="70" class="box2-pie-percent" text-anchor="end" dominant-baseline="hanging">98%</text>
+                                </svg>
+                                <p class="box2-pie-label">Smartphone<br>penetration rate<br>(world's highest)</p>
+                            </div>
 
-                        <!-- Right Pie Chart: 57% -->
-                        <div class="box2-pie-section box2-pie-right">
-                            <svg class="box2-pie-chart" viewBox="0 0 200 200">
-                                <circle cx="100" cy="100" r="90" fill="#AEB1E7" />
-                                <path id="box2-pie-path-right" d="" fill="#924D90" transform="translate(100, 100)" />
-                                <text x="175" y="70" class="box2-pie-percent" text-anchor="end" dominant-baseline="hanging">57%</text>
-                            </svg>
-                            <p class="box2-pie-label">Face-to-face<br>social activities<br>(<2 times/week)</p>
+                            <!-- Right Pie Chart: 57% -->
+                            <div class="box2-pie-section box2-pie-right">
+                                <svg class="box2-pie-chart" viewBox="0 0 200 200">
+                                    <circle cx="100" cy="100" r="90" fill="#AEB1E7" />
+                                    <path id="box2-pie-path-right" d="" fill="#924D90" transform="translate(100, 100)" />
+                                    <text x="175" y="70" class="box2-pie-percent" text-anchor="end" dominant-baseline="hanging">57%</text>
+                                </svg>
+                                <p class="box2-pie-label">Face-to-face<br>social activities<br>(<2 times/week)</p>
+                            </div>
                         </div>
 
                         <!-- Caption Box -->
@@ -198,24 +203,26 @@
                     <div class="box3-content">
                         <h2 class="box3-title">Lack of Genuine Personal Connection</h2>
 
-                        <!-- Left Pie Chart: 85% -->
-                        <div class="box3-pie-section box3-pie-left">
-                            <svg class="box3-pie-chart" viewBox="0 0 200 200">
-                                <circle cx="100" cy="100" r="90" fill="#AEB1E7" />
-                                <path id="box3-pie-path-left" d="" fill="#924D90" transform="translate(100, 100)" />
-                                <text x="175" y="70" class="box3-pie-percent" text-anchor="end" dominant-baseline="hanging">85%</text>
-                            </svg>
-                            <p class="box3-pie-label">Feels like no one to<br>talk to receive<br>emotional support</p>
-                        </div>
+                        <div class="box3-charts-wrapper">
+                            <!-- Left Pie Chart: 85% -->
+                            <div class="box3-pie-section box3-pie-left">
+                                <svg class="box3-pie-chart" viewBox="0 0 200 200">
+                                    <circle cx="100" cy="100" r="90" fill="#AEB1E7" />
+                                    <path id="box3-pie-path-left" d="" fill="#924D90" transform="translate(100, 100)" />
+                                    <text x="175" y="70" class="box3-pie-percent" text-anchor="end" dominant-baseline="hanging">85%</text>
+                                </svg>
+                                <p class="box3-pie-label">Feels like no one to<br>talk to receive<br>emotional support</p>
+                            </div>
 
-                        <!-- Right Pie Chart: 30% -->
-                        <div class="box3-pie-section box3-pie-right">
-                            <svg class="box3-pie-chart" viewBox="0 0 200 200">
-                                <circle cx="100" cy="100" r="90" fill="#AEB1E7" />
-                                <path id="box3-pie-path-right" d="" fill="#924D90" transform="translate(100, 100)" />
-                                <text x="175" y="70" class="box3-pie-percent" text-anchor="end" dominant-baseline="hanging">30%</text>
-                            </svg>
-                            <p class="box3-pie-label">Youth Suicidal Rate<br>among Hidden Youth<br>(socially withdrawn)</p>
+                            <!-- Right Pie Chart: 30% -->
+                            <div class="box3-pie-section box3-pie-right">
+                                <svg class="box3-pie-chart" viewBox="0 0 200 200">
+                                    <circle cx="100" cy="100" r="90" fill="#AEB1E7" />
+                                    <path id="box3-pie-path-right" d="" fill="#924D90" transform="translate(100, 100)" />
+                                    <text x="175" y="70" class="box3-pie-percent" text-anchor="end" dominant-baseline="hanging">30%</text>
+                                </svg>
+                                <p class="box3-pie-label">Youth Suicidal Rate<br>among Hidden Youth<br>(socially withdrawn)</p>
+                            </div>
                         </div>
 
                         <!-- Caption Box -->

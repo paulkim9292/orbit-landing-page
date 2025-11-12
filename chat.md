@@ -216,3 +216,99 @@ Total ≈ **6,750 points**, representing **25–30 social events per semester**,
 - **Tool Used:** GPT-5 (ChatGPT)
 - **Sections:** Overview, Prompt, AI Response Summary, Justification, Project Evolution, Final Outcome
 - **Purpose:** Demonstrates AI’s contribution to creative system design, gamification, and psychological reasoning for local wellness impact.
+
+# #3 Figma-to-Web Animation Implementation
+
+## Prompt
+
+> Use Figma MCP server to refer the "Landing Page1" and "Landing Page2". Inside the pages, there are six ellipses (circles) that are also stored in "/images/ folder" in this directory. Position these circles according to "Landing Page1". Then, when the user scrolls to the next page (page 2), gradually move these circles to the corresponding positions in "Landing Page2" using CSS animation.
+
+## Response Summary
+
+**AI Agent Used:** Claude Code
+
+**Implementation Process:**
+
+1. **Design Analysis**
+
+   - Connected to Figma MCP server to access design files
+   - Retrieved position and layout specifications for circles from both landing pages
+   - Analyzed the visual differences between the two page states
+
+2. **Codebase Integration**
+
+   - Examined the existing landing page directory structure
+   - Identified the six circle images in the `/images/` folder
+   - Assessed current HTML/CSS architecture
+
+3. **Animation Development**
+
+   - Positioned circles according to "Landing Page1" specifications as the initial state
+   - Created CSS animations to smoothly transition circles from Page 1 to Page 2 positions
+   - Implemented scroll-based triggers to activate animations when users navigate to page 2
+
+4. **Result**
+   - Successfully created an animated background effect using the circular elements
+   - Enhanced the landing page with smooth, dynamic transitions
+   - Delivered a polished, engaging user experience with visually appealing scroll-triggered animations
+
+# #4 Mobile Responsive Design Implementation
+
+## Prompt Overview
+
+**AI Agent Used:** Claude Code
+
+**Prompt:** "Add mobile responsive (mobile friendly) design."
+
+## Response Summary
+
+### Initial Clarification Phase
+
+The Claude Code agent initiated a clarification process by asking targeted follow-up questions to understand the specific requirements:
+
+**Q1: What breakpoints should we prioritize for mobile responsiveness?**
+
+- **Answer:**
+  - Mobile phones (320px-480px)
+  - Large phones/phablets (481px-767px)
+  - Tablets (768px-1024px)
+  - Small laptops (1025px-1366px)
+
+**Q2: How should we handle the full-screen scrolling presentation style on mobile?**
+
+- **Answer:** Hybrid approach
+
+**Q3: What should we do with the animated background circles and scroll-based animations on mobile?**
+
+- **Answer:** Keep all animations
+
+**Q4: Do you want a hamburger menu for mobile navigation?**
+
+- **Answer:** Keep current nav
+
+### Implementation Process
+
+After gathering the requirements, the agent proceeded with the following:
+
+1. **Detailed Planning**
+
+   - Created a comprehensive implementation plan for responsive design
+   - Outlined the approach for each breakpoint category
+   - Defined strategies for maintaining animations across devices
+
+2. **Code Generation**
+   - Generated responsive CSS code targeting all specified breakpoints
+   - Adapted existing animations to work seamlessly on mobile devices
+   - Maintained the current navigation structure while ensuring mobile compatibility
+   - Implemented hybrid scrolling approach for optimal mobile experience
+
+### Outcome
+
+**Result:** While the provided code was not perfect, it served as an excellent guideline and starting point for implementing mobile responsiveness. The code provided:
+
+- Clear breakpoint definitions
+- Responsive layout adjustments
+- Mobile-friendly animation preservation
+- A solid foundation for further refinement and customization
+
+**Value Delivered:** A practical, actionable starting point that significantly accelerated the mobile responsive design implementation process.
