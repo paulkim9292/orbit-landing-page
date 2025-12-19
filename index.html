@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.ico">
     <title>Orbit - your space to connect</title>
+    <link rel="preload" as="image" href="./assets/planet.gif">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,26 +19,26 @@
       <img src="assets/yellow.svg" alt="Yellow circle">
     </div> -->
     <div class="circle" id="pink">
-      <img src="assets/pink.svg" alt="Pink circle">
+      <img src="assets/pink.svg" alt="Pink circle" fetchpriority="low">
     </div>
     <div class="circle" id="purple2">
-      <img src="assets/purple2.svg" alt="Purple circle 2">
+      <img src="assets/purple2.svg" alt="Purple circle 2" fetchpriority="low">
     </div>
     <div class="circle" id="purple1">
-      <img src="assets/purple1.svg" alt="Purple circle 1">
+      <img src="assets/purple1.svg" alt="Purple circle 1" fetchpriority="low">
     </div>
     <div class="circle" id="navy2">
-      <img src="assets/navy2.svg" alt="Navy circle 2">
+      <img src="assets/navy2.svg" alt="Navy circle 2" fetchpriority="low">
     </div>
     <div class="circle" id="navy1">
-      <img src="assets/navy1.svg" alt="Navy circle 1">
+      <img src="assets/navy1.svg" alt="Navy circle 1" fetchpriority="low">
     </div>
   </div>
 
   <main>
     <div class="bullet-connector-line"></div>
     <section class="landing-page" id="page1">
-      <img src="./assets/planet.gif" alt="Planet" autoplay loop muted playsinline>
+      <img src="./assets/planet.gif" alt="Planet" fetchpriority="high" autoplay loop muted playsinline>
     </section>
 
     <section class="landing-page" id="page2">
@@ -60,20 +61,20 @@
     <section class="landing-page" id="page3">
         <b class="page-title">Social wellbeing is ...</b>
         <p>The ability to create and maintain healthy relationships with others by participating in community or group activities</p>
-        <img src="./assets/page3_people.svg" alt="Page 3 People">
+        <img src="./assets/page3_people.svg" alt="Page 3 People" loading="lazy">
     </section>
 
     <section class="landing-page" id="page4">
         <b class="page-title">Contrarily, in Hong Kong, people aged between 18-23...</b>
-        <img src="./assets/page4_hk_icon.svg" alt="HK Icon" class="hk-icon">
+        <img src="./assets/page4_hk_icon.svg" alt="HK Icon" class="hk-icon" loading="lazy">
         <div id="page4-content">
             <div>
-                <img src="./assets/page4_icon1.svg" alt="Page 4 Icon 1">
+                <img src="./assets/page4_icon1.svg" alt="Page 4 Icon 1" loading="lazy">
                 <b>Lack of Activities</b>
                 <p>56.3% exercise<br>once in a month</p>
             </div>
             <div>
-                <img src="./assets/page4_icon2.svg" alt="Page 4 Icon 2">
+                <img src="./assets/page4_icon2.svg" alt="Page 4 Icon 2" loading="lazy">
                 <b>Unhealthy Mindset</b>
                 <p>51.9% showed symptoms<br>of depression/anxiety</p>
             </div>
@@ -91,7 +92,7 @@
                     <p>5500</p>
                 </div>
                 <div class="arrow">
-                    <img src="./assets/page5_arrow.svg" alt="Page 5 Arrow">
+                    <img src="./assets/page5_arrow.svg" alt="Page 5 Arrow" loading="lazy">
                 </div> 
             </div> 
             <p>all these data indicate worsening trend of</p>
@@ -103,17 +104,17 @@
         <b class="page-title">Why is this happening in Hong Kong?</b>
         <div>
             <div>
-                <img src="./assets/page6_icon1.svg" alt="Page 6 Icon 1">
+                <img src="./assets/page6_icon1.svg" alt="Page 6 Icon 1" loading="lazy">
                 <p>Achievement-driven<br>Competitive<br>Societal Culture</p>
                 <button data-box="0">Click to Read More</button>
             </div>
             <div>
-                <img src="./assets/page6_icon2.svg" alt="Page 6 Icon 2">
+                <img src="./assets/page6_icon2.svg" alt="Page 6 Icon 2" loading="lazy">
                 <p>Superficial Facade<br>of Social Media<br>Addiction</p>
                 <button data-box="1">Click to Read More</button>
             </div>
             <div>
-                <img src="./assets/page6_icon3.svg" alt="Page 6 Icon 3">
+                <img src="./assets/page6_icon3.svg" alt="Page 6 Icon 3" loading="lazy">
                 <p>Lack of Genuine<br>Personal<br>Connection</p>
                 <button data-box="2">Click to Read More</button>
             </div>
@@ -243,12 +244,12 @@
     <section class="landing-page" id="page8">
         <p>Above factors lowers the <b>overall</b> social wellbeing index</p>
         <div class="page8-image">
-            <img src="./assets/page8_line.svg" alt="Line">
-            <img src="./assets/page8_fulfilment.svg" alt="Fulfilment">
-            <img src="./assets/page8_physical_wellbeing.svg" alt="Physical Wellbeing">
-            <img src="./assets/page8_purpose.svg" alt="Purpose">
-            <img src="./assets/page8_arrow.svg" alt="Arrow">
-            <img src="./assets/page8_social_wellbeing.svg" alt="Social Wellbeing">
+            <img src="./assets/page8_line.svg" alt="Line" loading="lazy">
+            <img src="./assets/page8_fulfilment.svg" alt="Fulfilment" loading="lazy">
+            <img src="./assets/page8_physical_wellbeing.svg" alt="Physical Wellbeing" loading="lazy">
+            <img src="./assets/page8_purpose.svg" alt="Purpose" loading="lazy">
+            <img src="./assets/page8_arrow.svg" alt="Arrow" loading="lazy">
+            <img src="./assets/page8_social_wellbeing.svg" alt="Social Wellbeing" loading="lazy">
         </div>
         <div class="page8-bottom-text">
             <p>With the increasing severity of such situation</p>
@@ -257,8 +258,8 @@
     </section>
 
     <section class="landing-page" id="page9">
-        <img src="./assets/orbit_text.svg" alt="Orbit Text">
-        <img src="./assets/app_icon.svg" alt="App Icon">
+        <img src="./assets/orbit_text.svg" alt="Orbit Text" loading="lazy">
+        <img src="./assets/app_icon.svg" alt="App Icon" loading="lazy">
         <p>We introduce Orbit: </p>
         <p>App for your social-wellness and community engagement</p>
     </section>
@@ -268,10 +269,10 @@
 
         <div class="page10-flow">
             <div class="page10-bullet">
-                <img src="./assets/bullet_circle.svg" alt="Bullet" class="bullet-icon">
+                <img src="./assets/bullet_circle.svg" alt="Bullet" class="bullet-icon" loading="lazy">
             </div>
             <p class="page10-flow-text">User creates Orbit account</p>
-            <img src="./assets/arrow_right.svg" alt="Arrow" class="page10-arrow">
+            <img src="./assets/arrow_right.svg" alt="Arrow" class="page10-arrow" loading="lazy">
             <p class="page10-flow-text">takes On-Board Questionnaires</p>
         </div>
 
@@ -279,19 +280,19 @@
 
         <div class="page10-phone-grid">
             <div class="page10-phone-item">
-                <img src="./assets/page10_phone1.png" alt="Questionnaire 1">
+                <img src="./assets/page10_phone1.png" alt="Questionnaire 1" loading="lazy" decoding="async">
                 <div class="page10-badge">Social Connection</div>
             </div>
             <div class="page10-phone-item">
-                <img src="./assets/page10_phone2.png" alt="Questionnaire 2">
+                <img src="./assets/page10_phone2.png" alt="Questionnaire 2" loading="lazy" decoding="async">
                 <div class="page10-badge">Emotional Status</div>
             </div>
             <div class="page10-phone-item">
-                <img src="./assets/page10_phone3.png" alt="Questionnaire 3">
+                <img src="./assets/page10_phone3.png" alt="Questionnaire 3" loading="lazy" decoding="async">
                 <div class="page10-badge">Active Lifestyle</div>
             </div>
             <div class="page10-phone-item">
-                <img src="./assets/page10_phone4.png" alt="Questionnaire 4">
+                <img src="./assets/page10_phone4.png" alt="Questionnaire 4" loading="lazy" decoding="async">
                 <div class="page10-badge">Digital Lifestyle</div>
             </div>
         </div>
@@ -300,57 +301,57 @@
     <section class="landing-page" id="page11">
         <div class="page11-header">
             <div class="page11-bullet">
-                <img src="./assets/bullet_circle.svg" alt="Bullet" class="bullet-icon">
+                <img src="./assets/bullet_circle.svg" alt="Bullet" class="bullet-icon" loading="lazy">
             </div>
             <p class="page11-text">Initial social level is assigned based on the survey result</p>
         </div>
 
         <!-- <img src="./assets/page11_content.svg" alt="Social Level Progression" class="page11-content"> -->
          <div class="page11-content-wrapper">
-            <img src="./assets/page11_line.svg" alt="Line" class="page11-line">
-            <img src="./assets/page11_lv1.svg" alt="Level 1" class="page11-lv1">
-            <img src="./assets/page11_lv2.svg" alt="Level 2" class="page11-lv2">
-            <img src="./assets/page11_lv3.svg" alt="Level 3" class="page11-lv3">
-            <img src="./assets/page11_lv4.svg" alt="Level 4" class="page11-lv4">
-            <img src="./assets/page11_lv5.svg" alt="Level 5" class="page11-lv5">
-            <img src="./assets/page11_lv6.svg" alt="Level 6" class="page11-lv6">
+            <img src="./assets/page11_line.svg" alt="Line" class="page11-line" loading="lazy">
+            <img src="./assets/page11_lv1.svg" alt="Level 1" class="page11-lv1" loading="lazy">
+            <img src="./assets/page11_lv2.svg" alt="Level 2" class="page11-lv2" loading="lazy">
+            <img src="./assets/page11_lv3.svg" alt="Level 3" class="page11-lv3" loading="lazy">
+            <img src="./assets/page11_lv4.svg" alt="Level 4" class="page11-lv4" loading="lazy">
+            <img src="./assets/page11_lv5.svg" alt="Level 5" class="page11-lv5" loading="lazy">
+            <img src="./assets/page11_lv6.svg" alt="Level 6" class="page11-lv6" loading="lazy">
         </div>
         <div class="page11-arrow-screen">
-            <img src="./assets/page11_arrow.svg" alt="Arrow" class="page11-arrow">
-            <img src="./assets/page11_screen.svg" alt="Screen" class="page11-screen">
+            <img src="./assets/page11_arrow.svg" alt="Arrow" class="page11-arrow" loading="lazy">
+            <img src="./assets/page11_screen.svg" alt="Screen" class="page11-screen" loading="lazy">
         </div>
     </section>
 
     <section class="landing-page" id="page12">
         <div class="page12-header">
             <div class="page12-bullet">
-                <img src="./assets/bullet_circle.svg" alt="Bullet" class="bullet-icon">
+                <img src="./assets/bullet_circle.svg" alt="Bullet" class="bullet-icon" loading="lazy">
             </div>
             <p class="page12-text">Users earn points by joining various social events</p>
         </div>
 
         <div class="page12-images">
-            <img src="./assets/page12_image1.svg" alt="Image 1" class="page12-image">
-            <img src="./assets/page12_image2.svg" alt="Image 2" class="page12-image">
-            <img src="./assets/page12_image3.svg" alt="Image 3" class="page12-image">
+            <img src="./assets/page12_image1.svg" alt="Image 1" class="page12-image" loading="lazy">
+            <img src="./assets/page12_image2.svg" alt="Image 2" class="page12-image" loading="lazy">
+            <img src="./assets/page12_image3.svg" alt="Image 3" class="page12-image" loading="lazy">
         </div>
     </section>
 
     <section class="landing-page" id="page13">
         <div class="page13-header">
             <div class="page13-bullet">
-                <img src="./assets/bullet_circle.svg" alt="Bullet" class="bullet-icon">
+                <img src="./assets/bullet_circle.svg" alt="Bullet" class="bullet-icon" loading="lazy">
             </div>
             <p class="page13-text">Users can level up to the next social level!</p>
         </div>
 
-        <img src="./assets/orbit_text.svg" alt="Progress" class="page13-progress">
+        <img src="./assets/orbit_text.svg" alt="Progress" class="page13-progress" loading="lazy">
         <h2 class="page13-connect-title">Connect your space with us.</h2>
-        <img src="./assets/page13_qr.svg" alt="QR Code">
+        <img src="./assets/page13_qr.svg" alt="QR Code" loading="lazy">
 
         <div class="page13-header2">
             <div class="page13-bullet2">
-                <img src="./assets/bullet_circle.svg" alt="Bullet" class="bullet-icon">
+                <img src="./assets/bullet_circle.svg" alt="Bullet" class="bullet-icon" loading="lazy">
             </div>
             <p class="page13-text2">Users get to improve social wellbeing through Orbit</p>
         </div>
@@ -359,7 +360,7 @@
 
   <!-- Scroll to top button -->
   <button class="scroll-to-top" aria-label="Scroll to top">
-    <img src="./assets/to_top_btn_red.svg" alt="Scroll to top">
+    <img src="./assets/to_top_btn_blue.svg" alt="Scroll to top">
   </button>
 
   <script src="script.js"></script>
