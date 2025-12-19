@@ -958,3 +958,30 @@ function updateBulletLine() {
 
 window.addEventListener('load', updateBulletLine);
 window.addEventListener('resize', updateBulletLine);
+
+// Scroll to top button functionality
+const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+// Show/hide button based on scroll position
+function toggleScrollToTopButton() {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const windowHeight = window.innerHeight;
+
+  // Show button after scrolling down one viewport height
+  if (scrollTop > windowHeight) {
+    scrollToTopBtn.classList.add('visible');
+  } else {
+    scrollToTopBtn.classList.remove('visible');
+  }
+}
+
+// Scroll to top when button is clicked
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+});
+
+// Add scroll event listener for button visibility
+window.addEventListener('scroll', toggleScrollToTopButton);
