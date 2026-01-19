@@ -4,7 +4,7 @@
 
 _A submission for the Jumpstarter ZPIRE Student AI Challenge_
 
-**Live Demo:** [paulkim9292.github.io/orbit/](https://paulkim9292.github.io/orbit/)
+**Live Demo:** [orbit-aimee-landing-page.vercel.app](orbit-aimee-landing-page.vercel.app)
 
 ---
 
