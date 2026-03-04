@@ -42,7 +42,7 @@ b {
 body {
   font-family: "Afacad", sans-serif;
   background-color: var(--navy);
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
   color: var(--blue);
   font-size: clamp(1rem, 2vw, 2rem);
@@ -150,7 +150,7 @@ svg {
 /* Landing page sections */
 .landing-page {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   scroll-snap-align: start;
   position: relative;
   z-index: 100;
@@ -230,8 +230,9 @@ svg {
 .page1-video {
   opacity: 1;
   max-width: 100%;
-  max-height: calc(100vh - 5rem);
+  max-height: calc(100dvh - 5rem);
   z-index: 100;
+  background: transparent;
 }
 
 /* Intro block inside page1 — hidden on desktop, shown on mobile */
@@ -899,13 +900,13 @@ svg {
 
 .bar-arrow {
   width: 70px;
-  height: 17px;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  height: auto;
+  margin-left: 0.5rem;
   flex-shrink: 0;
   align-self: flex-start;
-  margin-top: 10px;
+  margin-top: 5px;
   opacity: 0;
+  overflow: visible;
 }
 
 .carousel-box.animated .bar-arrow {
@@ -1698,7 +1699,7 @@ svg {
    ============================================= */
 
 .about-main {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1972,7 +1973,7 @@ svg {
 
   #page1.landing-page {
     height: auto;
-    min-height: 100vh;
+    min-height: 100dvh;
     padding: 2rem 0;
   }
 
@@ -2002,7 +2003,7 @@ svg {
 
   #page4.landing-page {
     height: auto;
-    min-height: 100vh;
+    min-height: 100dvh;
     padding: 3rem 0;
     gap: 0;
   }
@@ -2108,7 +2109,7 @@ svg {
   }
 
   #page5.landing-page {
-    min-height: 100vh;
+    min-height: 100dvh;
     padding: 3rem 0;
     justify-content: space-between;
   }
@@ -2134,7 +2135,7 @@ svg {
 
   #page8.landing-page {
     height: auto;
-    min-height: 100vh;
+    min-height: 100dvh;
     padding: 3rem 0;
   }
 
@@ -2246,7 +2247,7 @@ svg {
 
   #page11.landing-page {
     height: auto;
-    min-height: 100vh;
+    min-height: 100dvh;
     padding: 3rem 0;
     justify-content: flex-start;
   }
@@ -2396,10 +2397,6 @@ svg {
 
   .bar-arrow {
     width: 40px;
-    height: 12px;
-    margin-left: 0.5rem;
-    margin-right: 0;
-    margin-top: 6px;
   }
 
   .box-legend {
@@ -2535,9 +2532,7 @@ svg {
   }
 
   .bar-arrow {
-    width: 30px;
-    height: 10px;
-    margin-top: 5px;
+    width: 25px;
   }
 
   .bar-year {
