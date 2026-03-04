@@ -233,6 +233,7 @@ svg {
   max-height: calc(100dvh - 5rem);
   z-index: 100;
   background: transparent;
+  mix-blend-mode: multiply;
 }
 
 /* Intro block inside page1 — hidden on desktop, shown on mobile */
