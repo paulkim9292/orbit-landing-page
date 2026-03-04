@@ -5,7 +5,15 @@ interface SnapScrollContextValue {
 }
 
 const fallbackScrollToPage = (pageId: string) => {
-  document.getElementById(pageId)?.scrollIntoView({ behavior: 'smooth' });
+  const el = document.getElementById(pageId);
+  if (!el) return;
+
+  const html = document.documentElement;
+  html.style.scrollSnapType = 'none';
+  el.scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => {
+    html.style.scrollSnapType = '';
+  }, 1000);
 };
 
 const SnapScrollContext = createContext<SnapScrollContextValue>({
@@ -18,7 +26,15 @@ export function useSnapScroll() {
 
 export function SnapScrollProvider({ children }: { children: ReactNode }) {
   const scrollToPage = useCallback((pageId: string) => {
-    document.getElementById(pageId)?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById(pageId);
+    if (!el) return;
+
+    const html = document.documentElement;
+    html.style.scrollSnapType = 'none';
+    el.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      html.style.scrollSnapType = '';
+    }, 1000);
   }, []);
 
   return (
