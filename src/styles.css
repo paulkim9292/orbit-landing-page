@@ -2033,28 +2033,27 @@ svg {
   }
 
   #page4.landing-page {
-    height: auto;
-    min-height: 100dvh;
-    padding: 3rem 0;
+    height: 100dvh;
+    padding: 1.5rem 0;
     gap: 0;
   }
 
   .page4-transition-text {
     font-weight: 400;
-    margin-top: 5rem;
-    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .page4-hk-emblem {
     flex: none;
-    padding: 3rem 0;
+    padding: 1rem 0;
   }
 
   .page4-stats {
     flex-direction: column;
-    gap: clamp(3rem, 6vh, 5rem);
+    gap: clamp(1rem, 3vh, 2rem);
     width: 90%;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   .page4-stat-row {
@@ -2277,9 +2276,8 @@ svg {
   }
 
   #page11.landing-page {
-    height: auto;
-    min-height: 100dvh;
-    padding: 3rem 0;
+    height: 100dvh;
+    padding: 1.5rem 0;
     justify-content: flex-start;
   }
 
@@ -2297,15 +2295,15 @@ svg {
   .page11-content-wrapper {
     order: 2;
     transform: scale(0.65);
-    margin-top: 20%;
-    margin-bottom: 5%;
+    margin-top: 10%;
+    margin-bottom: 2%;
   }
 
   .page11-arrow-screen {
     order: 3;
     width: 85%;
     margin-left: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     justify-content: center;
     align-items: center;
   }
