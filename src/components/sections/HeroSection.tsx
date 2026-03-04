@@ -2,6 +2,7 @@ import { useRef, useCallback } from 'react';
 import { Section } from '../layout/Section';
 import { useSectionVisibility } from '../../hooks';
 import planetVideo from '../../assets/planet.webm';
+import planetVideoHevc from '../../assets/planet-hevc.mov';
 import planetVideoMp4 from '../../assets/planet.mp4';
 import orbitTextSvg from '../../assets/orbit_text.svg';
 import scrollArrowSvg from '../../assets/scroll_arrow.svg';
@@ -23,6 +24,7 @@ export function HeroSection({ onInfoClick, onBackgroundClick }: HeroSectionProps
   return (
     <Section id="page1" ref={setRefs}>
       <video className="page1-video" autoPlay loop muted playsInline>
+        <source src={planetVideoHevc} type='video/mp4; codecs="hvc1"' />
         <source src={planetVideo} type="video/webm" />
         <source src={planetVideoMp4} type="video/mp4" />
       </video>
