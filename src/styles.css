@@ -410,6 +410,10 @@ svg {
   opacity: 1;
 }
 
+#page4.landing-page {
+  padding: 3rem 0;
+}
+
 .page4-transition-text {
   font-size: clamp(1rem, 3vw, 2.5rem);
   font-weight: 700;
