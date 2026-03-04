@@ -7,16 +7,18 @@ export function ScrollToTopButton() {
   const { scrollToPage } = useSnapScroll();
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const windowHeight = window.innerHeight;
+    const hero = document.getElementById('page1');
+    if (!hero) return;
 
-      // Show button after scrolling down one viewport height
-      setIsVisible(scrollTop > windowHeight);
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(!entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
 
-    window.addEventListener('scroll', toggleVisibility, { passive: true });
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    observer.observe(hero);
+    return () => observer.disconnect();
   }, []);
 
   const scrollToTop = () => {

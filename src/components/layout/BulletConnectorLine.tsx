@@ -13,11 +13,9 @@ export function BulletConnectorLine() {
         const firstRect = firstBullet.getBoundingClientRect();
         const lastRect = lastBullet.getBoundingClientRect();
 
-        // Absolute document positions (top)
         const firstTop = firstRect.top + window.scrollY + firstRect.height / 2;
         const lastTop = lastRect.top + window.scrollY + lastRect.height / 2;
 
-        // Align line center with bullet center X (document-relative)
         const bulletCenterX = firstRect.left + window.scrollX + firstRect.width / 2;
         const lineLeft = bulletCenterX - LINE_WIDTH / 2;
 
@@ -38,9 +36,9 @@ export function BulletConnectorLine() {
       // Already loaded, wait for images
       Promise.all(
         Array.from(document.images)
-          .map(img => 
-            img.complete 
-              ? Promise.resolve() 
+          .map(img =>
+            img.complete
+              ? Promise.resolve()
               : new Promise(resolve => {
                   img.addEventListener('load', resolve, { once: true });
                   img.addEventListener('error', resolve, { once: true });
@@ -51,8 +49,7 @@ export function BulletConnectorLine() {
       });
     }
 
-    window.addEventListener('resize', updateLine);
-    window.addEventListener('scroll', updateLine, { passive: true });
+    window.addEventListener('resize', updateLine, { passive: true });
 
     // ResizeObserver on main for layout changes
     const mainEl = document.querySelector('main');
@@ -62,13 +59,12 @@ export function BulletConnectorLine() {
       ro.observe(mainEl);
     }
 
-    // Periodic check for stability (in case fonts/animations shift layout)
-    const stabilityInterval = setInterval(updateLine, 2000);
+    // Single safety-net recalculation instead of 2-second polling
+    const safetyTimeout = setTimeout(updateLine, 1000);
 
     return () => {
       window.removeEventListener('resize', updateLine);
-      window.removeEventListener('scroll', updateLine);
-      clearInterval(stabilityInterval);
+      clearTimeout(safetyTimeout);
       ro?.disconnect();
     };
   }, []);

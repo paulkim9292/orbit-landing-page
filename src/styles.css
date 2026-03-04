@@ -25,6 +25,7 @@
 
 html {
   scroll-snap-type: y mandatory;
+  overscroll-behavior-y: none;
 }
 
 /* Global styles */
@@ -148,9 +149,10 @@ svg {
 
 /* Landing page sections */
 .landing-page {
-  width: 100vw;
+  width: 100%;
   height: 100dvh;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   position: relative;
   z-index: 100;
   display: flex;

@@ -1,78 +1,85 @@
-import { useMemo } from 'react';
+import { useEffect } from 'react';
 import { allPagePositions, page1Positions } from '../data/circlePositions';
-import { useScrollPosition } from './useScrollPosition';
-import { useViewportBreakpoint } from './useViewportBreakpoint';
-import type { CirclePosition } from '../types';
+import type { PagePositions } from '../types';
 
-// Linear interpolation function
 function lerp(start: number, end: number, progress: number): number {
   return start + (end - start) * progress;
 }
 
-// Easing function for smoother animation
 function easeInOutCubic(x: number): number {
   return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 }
 
-interface CircleTransforms {
-  pink: { x: number; y: number };
-  purple1: { x: number; y: number };
-  purple2: { x: number; y: number };
-  navy1: { x: number; y: number };
-  navy2: { x: number; y: number };
+function getAnimationScale(width: number): number {
+  if (width <= 480) return 0.5;
+  if (width <= 767) return 0.6;
+  if (width <= 1024) return 0.8;
+  if (width <= 1366) return 0.95;
+  return 1;
 }
 
-export function useParallaxCircles(): CircleTransforms {
-  const scrollPosition = useScrollPosition();
-  const { animationScale } = useViewportBreakpoint();
+const circleIds = ['pink', 'purple2', 'purple1', 'navy2', 'navy1'] as const;
 
-  const transforms = useMemo(() => {
-    const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 1000;
-    const totalPages = allPagePositions.length;
-    const totalScrollHeight = windowHeight * (totalPages - 1);
+export function useParallaxCircles(): void {
+  useEffect(() => {
+    const elements = new Map<string, HTMLElement>();
+    for (const id of circleIds) {
+      const el = document.getElementById(id);
+      if (el) elements.set(id, el);
+    }
 
-    // Calculate overall progress (0 to 1 across all pages)
-    const overallProgress = Math.min(Math.max(scrollPosition / totalScrollHeight, 0), 1);
+    if (elements.size === 0) return;
 
-    // Calculate which segment we're in
-    const segmentProgress = overallProgress * (totalPages - 1);
-    const currentSegment = Math.floor(segmentProgress);
-    const nextSegment = Math.min(currentSegment + 1, totalPages - 1);
+    let ticking = false;
 
-    // Calculate progress within current segment (0 to 1)
-    const segmentLocalProgress = segmentProgress - currentSegment;
+    const applyTransforms = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const animationScale = getAnimationScale(window.innerWidth);
+      const totalPages = allPagePositions.length;
+      const totalScrollHeight = windowHeight * (totalPages - 1);
 
-    // Apply easing for smoother animation
-    const easedProgress = easeInOutCubic(segmentLocalProgress);
+      const overallProgress = Math.min(Math.max(scrollY / totalScrollHeight, 0), 1);
+      const segmentProgress = overallProgress * (totalPages - 1);
+      const currentSegment = Math.floor(segmentProgress);
+      const nextSegment = Math.min(currentSegment + 1, totalPages - 1);
+      const easedProgress = easeInOutCubic(segmentProgress - currentSegment);
 
-    // Get positions for current and next page
-    const currentPagePositions = allPagePositions[currentSegment];
-    const nextPagePositions = allPagePositions[nextSegment];
+      const currentPagePositions = allPagePositions[currentSegment];
+      const nextPagePositions = allPagePositions[nextSegment];
 
-    const calculateTransform = (circleId: keyof typeof page1Positions): CirclePosition => {
-      const startPos = currentPagePositions[circleId];
-      const endPos = nextPagePositions[circleId];
+      for (const id of circleIds) {
+        const el = elements.get(id);
+        if (!el) continue;
 
-      // Calculate interpolated position
-      const currentX = lerp(startPos.x, endPos.x, easedProgress);
-      const currentY = lerp(startPos.y, endPos.y, easedProgress);
+        const startPos = currentPagePositions[id as keyof PagePositions];
+        const endPos = nextPagePositions[id as keyof PagePositions];
+        const initialPos = page1Positions[id as keyof PagePositions];
 
-      // Calculate translation from initial CSS position (page1)
-      const initialPos = page1Positions[circleId];
-      const translateX = (currentX - initialPos.x) * animationScale;
-      const translateY = (currentY - initialPos.y) * animationScale;
+        const translateX = (lerp(startPos.x, endPos.x, easedProgress) - initialPos.x) * animationScale;
+        const translateY = (lerp(startPos.y, endPos.y, easedProgress) - initialPos.y) * animationScale;
 
-      return { x: translateX, y: translateY };
+        el.style.transform = `translate(${translateX}px, ${translateY}px)`;
+      }
     };
 
-    return {
-      pink: calculateTransform('pink'),
-      purple1: calculateTransform('purple1'),
-      purple2: calculateTransform('purple2'),
-      navy1: calculateTransform('navy1'),
-      navy2: calculateTransform('navy2'),
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          applyTransforms();
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-  }, [scrollPosition, animationScale]);
 
-  return transforms;
+    // Apply initial transforms
+    applyTransforms();
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
 }
