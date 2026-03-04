@@ -2,7 +2,7 @@ import { useRef, useCallback, useEffect, useState } from 'react';
 import { Section } from '../layout/Section';
 import { useSectionVisibility } from '../../hooks';
 import peopleSvg from '../../assets/page3_people.svg';
-import hkIconSvg from '../../assets/page4_hk_icon.svg';
+import hkIconPng from '../../assets/page4_hk_icon.png';
 import icon1Svg from '../../assets/page4_icon1.svg';
 import icon2Svg from '../../assets/page4_icon2.svg';
 
@@ -51,7 +51,7 @@ export function HongKongStatisticsSection() {
 
       <div className="page4-hk-emblem">
         <img
-          src={hkIconSvg}
+          src={hkIconPng}
           alt="Hong Kong emblem"
           className={`hk-icon ${hkAnimated ? 'animate' : ''}`}
           loading="lazy"

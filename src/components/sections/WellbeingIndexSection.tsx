@@ -8,7 +8,7 @@ import purposeSvg from '../../assets/page8_purpose.svg';
 import arrowSvg from '../../assets/page8_arrow.svg';
 import socialWellbeingSvg from '../../assets/page8_social_wellbeing.svg';
 import orbitTextSvg from '../../assets/orbit_text.svg';
-import appIconSvg from '../../assets/app_icon.svg';
+import appIconPng from '../../assets/app_icon.png';
 
 export function WellbeingIndexSection() {
   const { ref, hasBeenVisible } = useSectionVisibility();
@@ -105,7 +105,7 @@ export function WellbeingIndexSection() {
           loading="lazy"
         />
         <img
-          src={appIconSvg}
+          src={appIconPng}
           alt="App Icon"
           className={`page9-app-icon ${animatedElements[1] ? 'animate' : ''}`}
           loading="lazy"

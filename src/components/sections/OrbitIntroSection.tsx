@@ -2,7 +2,7 @@ import { useRef, useCallback, useState, useEffect } from 'react';
 import { Section } from '../layout/Section';
 import { useSectionVisibility } from '../../hooks';
 import orbitTextSvg from '../../assets/orbit_text.svg';
-import appIconSvg from '../../assets/app_icon.svg';
+import appIconPng from '../../assets/app_icon.png';
 
 export function OrbitIntroSection() {
   const { ref, hasBeenVisible } = useSectionVisibility();
@@ -40,7 +40,7 @@ export function OrbitIntroSection() {
         loading="lazy"
       />
       <img
-        src={appIconSvg}
+        src={appIconPng}
         alt="App Icon"
         className={`page9-app-icon ${animatedElements[1] ? 'animate' : ''}`}
         loading="lazy"
