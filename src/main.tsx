@@ -8,12 +8,15 @@ import { routeTree } from './routeTree.gen'
 import './styles.css'
 import reportWebVitals from './reportWebVitals.ts'
 
+// Prevent browser from restoring partial scroll positions (conflicts with CSS scroll-snap)
+history.scrollRestoration = 'manual'
+
 // Create a new router instance
 const router = createRouter({
   routeTree,
   context: {},
   defaultPreload: 'intent',
-  scrollRestoration: true,
+  scrollRestoration: false,
   defaultStructuralSharing: true,
   defaultPreloadStaleTime: 0,
 })

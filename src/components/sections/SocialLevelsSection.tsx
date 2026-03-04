@@ -11,6 +11,10 @@ import lv5Svg from '../../assets/page11_lv5.svg';
 import lv6Svg from '../../assets/page11_lv6.svg';
 import arrowSvg from '../../assets/page11_arrow.svg';
 import screenSvg from '../../assets/page11_screen.svg';
+import image1Svg from '../../assets/page12_image1.svg';
+import image2Svg from '../../assets/page12_image2.svg';
+import image3PhoneSvg from '../../assets/page12_image3_phone.svg';
+import image3ArrowSvg from '../../assets/page12_image3_arrow.svg';
 
 export function SocialLevelsSection() {
   const { ref, hasBeenVisible } = useSectionVisibility();
@@ -18,6 +22,8 @@ export function SocialLevelsSection() {
   const [animatedLevels, setAnimatedLevels] = useState([false, false, false, false, false, false]);
   const [arrowAnimated, setArrowAnimated] = useState(false);
   const [screenAnimated, setScreenAnimated] = useState(false);
+  const [eventsImage1Animated, setEventsImage1Animated] = useState(false);
+  const [eventsImage3Animated, setEventsImage3Animated] = useState(false);
 
   const setRefs = useCallback((node: HTMLElement | null) => {
     sectionRef.current = node;
@@ -46,6 +52,14 @@ export function SocialLevelsSection() {
       // Screen animation
       timers.push(
         setTimeout(() => setScreenAnimated(true), 2200)
+      );
+
+      // Events images animation (mobile page12 content)
+      timers.push(
+        setTimeout(() => setEventsImage1Animated(true), 2500)
+      );
+      timers.push(
+        setTimeout(() => setEventsImage3Animated(true), 3000)
       );
 
       return () => timers.forEach(clearTimeout);
@@ -96,6 +110,28 @@ export function SocialLevelsSection() {
           className={`page11-screen ${screenAnimated ? 'animate' : ''}`}
           loading="lazy"
         />
+      </div>
+
+      {/* Mobile: combined events content (page12) */}
+      <div className="page11-events">
+        <div className="page11-events-header">
+          <div className="page12-bullet">
+            <img src={bulletCircleSvg} alt="Bullet" className="bullet-icon" loading="lazy" />
+          </div>
+          <p className="page12-text">Users earn points by joining various social events</p>
+        </div>
+
+        <div className="page11-events-layout">
+          <div className={`page11-events-detail ${eventsImage1Animated ? 'animate' : ''}`}>
+            <img src={image1Svg} alt="Event detail" loading="lazy" />
+          </div>
+          <img src={image2Svg} alt="Events screen" className="page11-events-phone" loading="lazy" />
+          <img src={image3ArrowSvg} alt="Arrow" className={`page11-reports-arrow ${eventsImage3Animated ? 'animate' : ''}`} loading="lazy" />
+          <p className={`page11-reports-text ${eventsImage3Animated ? 'animate' : ''}`}>
+            Monthly Social Wellbeing<br />Reports provided
+          </p>
+          <img src={image3PhoneSvg} alt="Reports screen" className={`page11-reports-phone ${eventsImage3Animated ? 'animate' : ''}`} loading="lazy" />
+        </div>
       </div>
     </Section>
   );

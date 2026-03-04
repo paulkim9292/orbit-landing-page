@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useRef, useCallback } from 'react';
-import { BulletConnectorLine } from '../components/layout';
+import { BulletConnectorLine, SnapScrollProvider, useSnapScroll } from '../components/layout';
 import {
   HeroSection,
   IntroSection,
@@ -23,17 +23,16 @@ export const Route = createFileRoute('/')({
 });
 
 function LandingPage() {
-  const carouselRef = useRef<CarouselSectionHandle>(null);
+  return (
+    <SnapScrollProvider>
+      <LandingPageContent />
+    </SnapScrollProvider>
+  );
+}
 
-  const scrollToPage = useCallback((pageId: string) => {
-    const page = document.getElementById(pageId);
-    if (page) {
-      window.scrollTo({
-        top: page.offsetTop,
-        behavior: 'smooth',
-      });
-    }
-  }, []);
+function LandingPageContent() {
+  const carouselRef = useRef<CarouselSectionHandle>(null);
+  const { scrollToPage } = useSnapScroll();
 
   const handleInfoClick = useCallback(() => {
     scrollToPage('page9');
@@ -44,31 +43,27 @@ function LandingPage() {
   }, [scrollToPage]);
 
   const handleCauseCardClick = useCallback((boxIndex: number) => {
-    const page7 = document.getElementById('page7');
-    if (page7) {
-      window.scrollTo({
-        top: page7.offsetTop,
-        behavior: 'smooth',
-      });
-
-      // Wait for scroll to complete, then navigate to specific carousel box
-      setTimeout(() => {
-        carouselRef.current?.goToSlide(boxIndex);
-      }, 600);
-    }
-  }, []);
+    scrollToPage('page7');
+    // Wait for scroll animation to settle, then navigate to specific carousel box
+    setTimeout(() => {
+      carouselRef.current?.goToSlide(boxIndex);
+    }, 600);
+  }, [scrollToPage]);
 
   return (
     <main>
       <BulletConnectorLine />
-      <HeroSection />
+      <HeroSection
+        onInfoClick={handleInfoClick}
+        onBackgroundClick={handleBackgroundClick}
+      />
       <IntroSection
         onInfoClick={handleInfoClick}
         onBackgroundClick={handleBackgroundClick}
       />
       <SocialWellbeingSection />
       <HongKongStatisticsSection />
-      <HiddenYouthSection />
+      <HiddenYouthSection onCardClick={handleCauseCardClick} />
       <CausesSection onCardClick={handleCauseCardClick} />
       <CarouselSection ref={carouselRef} />
       <WellbeingIndexSection />

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import toTopBtnSvg from '../../assets/to_top_btn_blue.svg';
+import { useSnapScroll } from './SnapScrollProvider';
 
 export function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
+  const { scrollToPage } = useSnapScroll();
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -18,10 +20,7 @@ export function ScrollToTopButton() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    scrollToPage('page1');
   };
 
   return (

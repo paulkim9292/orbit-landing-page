@@ -3,3 +3,4 @@ export { Header } from './Header';
 export { ScrollToTopButton } from './ScrollToTopButton';
 export { Section } from './Section';
 export { BulletConnectorLine } from './BulletConnectorLine';
+export { SnapScrollProvider, useSnapScroll } from './SnapScrollProvider';

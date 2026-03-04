@@ -4,7 +4,8 @@ import { useSectionVisibility } from '../../hooks';
 import bulletCircleSvg from '../../assets/bullet_circle.svg';
 import image1Svg from '../../assets/page12_image1.svg';
 import image2Svg from '../../assets/page12_image2.svg';
-import image3Svg from '../../assets/page12_image3.svg';
+import image3PhoneSvg from '../../assets/page12_image3_phone.svg';
+import image3ArrowSvg from '../../assets/page12_image3_arrow.svg';
 
 export function EventsSection() {
   const { ref, hasBeenVisible } = useSectionVisibility();
@@ -51,12 +52,11 @@ export function EventsSection() {
           className="page12-image"
           loading="lazy"
         />
-        <img
-          src={image3Svg}
-          alt="Image 3"
-          className={`page12-image ${image3Animated ? 'animate' : ''}`}
-          loading="lazy"
-        />
+        <img src={image3ArrowSvg} alt="Arrow" className={`page12-image3-arrow ${image3Animated ? 'animate' : ''}`} loading="lazy" />
+        <div className={`page12-image page12-image3-group ${image3Animated ? 'animate' : ''}`}>
+          <p className="page12-image3-text">Monthly Social Wellbeing<br />Reports provided</p>
+          <img src={image3PhoneSvg} alt="Image 3" className="page12-image3-phone" loading="lazy" />
+        </div>
       </div>
     </Section>
   );

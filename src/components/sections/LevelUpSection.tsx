@@ -1,9 +1,9 @@
-import { useRef, useCallback, useState, useEffect } from 'react';
-import { Section } from '../layout/Section';
-import { useSectionVisibility } from '../../hooks';
-import bulletCircleSvg from '../../assets/bullet_circle.svg';
-import orbitTextSvg from '../../assets/orbit_text.svg';
-import qrCodeSvg from '../../assets/page13_qr.svg';
+import { useRef, useCallback, useState, useEffect } from "react";
+import { Section } from "../layout/Section";
+import { useSectionVisibility } from "../../hooks";
+import bulletCircleSvg from "../../assets/bullet_circle.svg";
+import orbitTextSvg from "../../assets/orbit_text.svg";
+import qrCodePng from "../../assets/page13_qr.png";
 
 export function LevelUpSection() {
   const { ref, hasBeenVisible } = useSectionVisibility();
@@ -12,10 +12,13 @@ export function LevelUpSection() {
   const [titleAnimated, setTitleAnimated] = useState(false);
   const [qrAnimated, setQrAnimated] = useState(false);
 
-  const setRefs = useCallback((node: HTMLElement | null) => {
-    sectionRef.current = node;
-    (ref as React.MutableRefObject<HTMLElement | null>).current = node;
-  }, [ref]);
+  const setRefs = useCallback(
+    (node: HTMLElement | null) => {
+      sectionRef.current = node;
+      (ref as React.MutableRefObject<HTMLElement | null>).current = node;
+    },
+    [ref]
+  );
 
   // Staggered animation
   useEffect(() => {
@@ -43,16 +46,16 @@ export function LevelUpSection() {
       <img
         src={orbitTextSvg}
         alt="Progress"
-        className={`page13-progress ${progressAnimated ? 'animate' : ''}`}
+        className={`page13-progress ${progressAnimated ? "animate" : ""}`}
         loading="lazy"
       />
-      <h2 className={`page13-connect-title ${titleAnimated ? 'animate' : ''}`}>
+      <h2 className={`page13-connect-title ${titleAnimated ? "animate" : ""}`}>
         Connect your space with us.
       </h2>
       <img
-        src={qrCodeSvg}
+        src={qrCodePng}
         alt="QR Code"
-        className={`page13-qr ${qrAnimated ? 'animate' : ''}`}
+        className={`page13-qr ${qrAnimated ? "animate" : ""}`}
         loading="lazy"
       />
 

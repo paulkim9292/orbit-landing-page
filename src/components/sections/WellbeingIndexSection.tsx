@@ -7,11 +7,14 @@ import physicalWellbeingSvg from '../../assets/page8_physical_wellbeing.svg';
 import purposeSvg from '../../assets/page8_purpose.svg';
 import arrowSvg from '../../assets/page8_arrow.svg';
 import socialWellbeingSvg from '../../assets/page8_social_wellbeing.svg';
+import orbitTextSvg from '../../assets/orbit_text.svg';
+import appIconSvg from '../../assets/app_icon.svg';
 
 export function WellbeingIndexSection() {
   const { ref, hasBeenVisible } = useSectionVisibility();
   const sectionRef = useRef<HTMLElement | null>(null);
   const [animatedImages, setAnimatedImages] = useState([false, false, false, false, false]);
+  const [animatedElements, setAnimatedElements] = useState([false, false, false, false]);
 
   const setRefs = useCallback((node: HTMLElement | null) => {
     sectionRef.current = node;
@@ -30,6 +33,24 @@ export function WellbeingIndexSection() {
             return newState;
           });
         }, delay)
+      );
+      return () => timers.forEach(clearTimeout);
+    }
+  }, [hasBeenVisible]);
+
+  // Staggered animation for orbit intro (mobile combined content)
+  useEffect(() => {
+    if (hasBeenVisible) {
+      const baseDelay = 1400; // Start after image animations finish
+      const delays = [0, 150, 300, 600];
+      const timers = delays.map((delay, i) =>
+        setTimeout(() => {
+          setAnimatedElements(prev => {
+            const newState = [...prev];
+            newState[i] = true;
+            return newState;
+          });
+        }, baseDelay + delay)
       );
       return () => timers.forEach(clearTimeout);
     }
@@ -73,7 +94,26 @@ export function WellbeingIndexSection() {
       </div>
       <div className="page8-bottom-text">
         <p>With the increasing severity of such situation</p>
-        <b>community-based, socially-engaged activities are in need</b>
+        <b style={{ color: '#FF5C75' }}>community-based, socially-engaged activities are in need</b>
+      </div>
+
+      <div className="page8-orbit-intro">
+        <img
+          src={orbitTextSvg}
+          alt="Orbit Text"
+          className={`page9-orbit-text ${animatedElements[0] ? 'animate' : ''}`}
+          loading="lazy"
+        />
+        <img
+          src={appIconSvg}
+          alt="App Icon"
+          className={`page9-app-icon ${animatedElements[1] ? 'animate' : ''}`}
+          loading="lazy"
+        />
+        <p className={`page9-text ${animatedElements[2] ? 'animate' : ''}`}>We introduce Orbit:</p>
+        <p className={`page9-text ${animatedElements[3] ? 'animate' : ''}`}>
+          App for your social-wellness and community engagement
+        </p>
       </div>
     </Section>
   );

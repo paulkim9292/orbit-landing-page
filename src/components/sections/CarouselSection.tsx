@@ -128,7 +128,7 @@ export const CarouselSection = forwardRef<CarouselSectionHandle>((_, forwardedRe
               <div className="box-charts-wrapper">
                 <div className="pie-section">
                   <PieChart percentage={85} trigger={boxAnimations[0]} id="box1-pie-path" />
-                  <p className="pie-label">Private tutoring<br />participation rate</p>
+                  <p className="pie-label">Private tutoring participation rate</p>
                 </div>
 
                 <div className="bar-section">
