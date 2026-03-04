@@ -1,9 +1,13 @@
 import type { TeamMember } from '../types';
+import teamMinjin from '../assets/team_minjin.svg';
+import teamPaul from '../assets/team_paul.svg';
+import teamHojin from '../assets/team_hojin.svg';
+import teamYunhee from '../assets/team_yunhee.svg';
 
 export const teamMembers: TeamMember[] = [
   {
     name: 'Minjin Gu',
-    image: '/src/assets/team_minjin.svg',
+    image: teamMinjin,
     achievements: [
       'Winner of multiple competitions (e.g. 1st Runner Up in Cathay Hackathon)',
       'Founder of Pinocchio (student-led mental health organization in HKUST)',
@@ -11,7 +15,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: 'Sungwoo Paul Kim',
-    image: '/src/assets/team_paul.svg',
+    image: teamPaul,
     achievements: [
       'Frontend Developer at a Startup (1 year)',
       'Co-founder & CTO at a SaaS Development Company',
@@ -19,7 +23,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: 'Hojin Ryu',
-    image: '/src/assets/team_hojin.svg',
+    image: teamHojin,
     achievements: [
       'Deep learning model for visual data (autonomous RC racing)',
       'Founder of ASTRIX (HKUST rocket club)',
@@ -27,7 +31,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: 'Yunhee Kim',
-    image: '/src/assets/team_yunhee.svg',
+    image: teamYunhee,
     achievements: [
       'Senior Analyst of HKUST KSA Research and Investment Strategy Society',
       'Strategic Planning & Research Intern at LX International',
