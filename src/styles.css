@@ -25,7 +25,6 @@
 
 html {
   scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
 }
 
 /* Global styles */
@@ -158,7 +157,7 @@ svg {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  will-change: transform;
+  overflow: hidden;
 }
 
 /* Circles container - fixed positioning behind content */
@@ -176,15 +175,7 @@ svg {
 /* Individual circle positioning */
 .circle {
   position: absolute;
-  transition: transform 0.3s ease-out;
   will-change: transform;
-}
-
-.circle img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
 
 /* Landing Page 1 positions (initial state) */
@@ -193,6 +184,7 @@ svg {
   top: 431px;
   width: 1432px;
   height: 1410px;
+  background: radial-gradient(ellipse at center, rgba(255, 129, 148, 0.61) 0%, rgba(255, 129, 148, 0) 70%);
 }
 
 #purple2 {
@@ -200,6 +192,7 @@ svg {
   top: -759px;
   width: 1748px;
   height: 1832px;
+  background: radial-gradient(ellipse at center, rgba(165, 177, 229, 0.49) 0%, rgba(165, 177, 229, 0) 70%);
 }
 
 #purple1 {
@@ -207,6 +200,7 @@ svg {
   top: 293px;
   width: 1413px;
   height: 1413px;
+  background: radial-gradient(ellipse at center, rgba(165, 177, 229, 0.49) 0%, rgba(165, 177, 229, 0) 70%);
 }
 
 #navy2 {
@@ -214,6 +208,7 @@ svg {
   top: 665px;
   width: 1412px;
   height: 1390px;
+  background: radial-gradient(ellipse at center, rgba(8, 10, 43, 1) 0%, rgba(8, 10, 43, 0) 70%);
 }
 
 #navy1 {
@@ -221,6 +216,7 @@ svg {
   top: -225px;
   width: 1412px;
   height: 1515px;
+  background: radial-gradient(ellipse at center, rgba(8, 10, 43, 1) 0%, rgba(8, 10, 43, 0) 70%);
 }
 
 /* =============================================
@@ -981,6 +977,11 @@ svg {
 /* =============================================
    PAGE 8 - WELLBEING INDEX
    ============================================= */
+
+#page8.landing-page,
+#page11.landing-page {
+  overflow: visible;
+}
 
 .page8-title {
   font-size: clamp(1rem, 3vw, 2.5rem);
@@ -1758,12 +1759,36 @@ svg {
   border-radius: 10px;
   overflow: hidden;
   background-color: #d9d9d9;
+  position: relative;
+}
+
+.team-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+.team-photo.loaded::after {
+  display: none;
 }
 
 .team-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-photo.loaded img {
+  opacity: 1;
+}
+
+@keyframes skeleton-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .team-info {

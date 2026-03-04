@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { TeamMember } from '../../types';
 
 interface TeamMemberCardProps {
@@ -5,10 +6,12 @@ interface TeamMemberCardProps {
 }
 
 export function TeamMemberCard({ member }: TeamMemberCardProps) {
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <div className="team-member">
-      <div className="team-photo">
-        <img src={member.image} alt={member.name} />
+      <div className={`team-photo${loaded ? ' loaded' : ''}`}>
+        <img src={member.image} alt={member.name} onLoad={() => setLoaded(true)} />
       </div>
       <div className="team-info">
         <h3>{member.name}</h3>
